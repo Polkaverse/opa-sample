@@ -1,0 +1,54 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.example"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "microservice",
+    "baseName": "sample",
+    "packageName": "com.example",
+    "packageFolder": "com/example",
+    "serverPort": "8081",
+    "authenticationType": "",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-ey",
+        "version": "0.0.0"
+      }
+    ],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true,
+    "embeddableLaunchScript": false,
+    "blueprints": [],
+    "appsFolders": [
+      "sample"
+    ],
+    "directoryPath": "../",
+    "gatewayType": "zuul",
+    "monitoring": "no",
+    "consoleOptions": [],
+    "dockerRepositoryName": "sample",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "default",
+    "ingressDomain": "192.168.99.100.nip.io",
+    "istio": true
+  }
+}

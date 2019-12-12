@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample
+      version: 'v1'
+  template:
+    metadata:
+      labels:
+        app: sample
+        version: 'v1'
+    spec:
+      initContainers:
+        - name: init-ds
+          image: busybox:latest
+          command:
+            - '/bin/sh'
+            - '-c'
+            - |
+              while true
+              do
+                if [ $? -eq 0 ]; then
+                  echo "DB is UP"
+                  break
+                fi
+                echo "DB is not yet reachable;sleep for 10s before retry"
+                sleep 10
+              done
+      containers:
+        - name: sample-app
+          image: jatindocker/customer
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+            - name: SPRING_SLEUTH_PROPAGATION_KEYS
+              value: 'x-request-id,x-ot-span-context'
+            - name: JAVA_OPTS
+              value: ' -Xmx256m -Xms256m'
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '50m'
+            limits:
+              memory: '512Mi'
+              cpu: '1'
+          ports:
+            - name: http
+              containerPort: 8081
+
