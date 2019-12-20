@@ -1,13 +1,14 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: ServiceEntry
 metadata:
-    name: external-svc-redirect
+    name: mocky
 spec:
     hosts:
-        - "mocky.io"
+        - mocky.io
+        - "*.mocky.io"
     location: MESH_EXTERNAL
     ports:
-        - number: 443
+        - number: 80
           name: http
           protocol: HTTP
     resolution: NONE

@@ -17,6 +17,10 @@ spec:
             exact: /account/create
         - uri:
             exact: /getRuntimeException
+        - uri:
+            exact: /getExternalCall
+        - uri:
+            exact: /getGoogle
       route:
         - destination:
             host: sample

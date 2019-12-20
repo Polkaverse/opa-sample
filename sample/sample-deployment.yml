@@ -33,7 +33,7 @@ spec:
               done
       containers:
         - name: sample-app
-          image: jatindocker/customer
+          image: jatindocker/customer-external
           imagePullPolicy: Always
           env:
             - name: SPRING_PROFILES_ACTIVE

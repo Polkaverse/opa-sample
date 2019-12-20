@@ -62,4 +62,26 @@ public class CustomerController {
             .getForObject(url + customerId, String.class);
 
     }
+
+    @GetMapping("/getExternalCall")
+    public String getExternalCall() {
+        logger.info("Getting all orders details for customerId: ");
+        RestTemplate restTemplate = new RestTemplate();
+        final String url = "http://www.mocky.io/v2/5dedef2e3300004a009842ae";
+        String output = restTemplate
+            .getForObject(url , String.class);
+        System.out.println("Mocky return output is : " + output);
+        return output;
+    }
+
+    @GetMapping("/getGoogle")
+    public String getExternalGoogleCall() {
+        logger.info("Getting all orders details for customerId: ");
+        RestTemplate restTemplate = new RestTemplate();
+        final String url = "http://www.google.com";
+        String output = restTemplate
+            .getForObject(url , String.class);
+        System.out.println("Google return output is : " + output);
+        return output;
+    }
 }

@@ -1,18 +1,18 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-    name: tls-routing
+    name: mocky
 spec:
     hosts:
-        - mocky.io.org
-        - "*.mocky.io.org"
+        - mocky.io
+        - "*.mocky.io"
     gateways:
-        - generic-gateway
+        - sample-gateway
     tls:
         - match:
               - sniHosts:
-                    - mocky.io.org
-                    - "*.mocky.io.org"
+                    - mocky.io
+                    - "*.mocky.io"
           route:
               - destination:
                     host: internal-egress-firewall.ns1.svc.cluster.local

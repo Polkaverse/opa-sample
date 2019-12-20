@@ -1,10 +1,10 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
-    name: sample-destinationrule
+    name: sample-destinationrule1
     namespace: default
 spec:
-    host: mocky
+    host: mocky.io
     trafficPolicy:
         connectionPool:
             tcp:
@@ -15,5 +15,5 @@ spec:
         outlierDetection:
             consecutiveErrors: 1
             interval: 10s
-            baseEjectionTime: 3m
-            maxEjectionPercent: 80
+            baseEjectionTime: 1m
+            maxEjectionPercent: 100
